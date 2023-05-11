@@ -3,19 +3,19 @@
 This directory contains various tasks for practicing with basic ES6 features in JavaScript.
 
 ## Tasks:
-0. **0-constants.js**: Declares two constants representing two variables.
-1. **1-block-scoped.js**: Prints two variables.
-2. **2-arrow.js**: Returns a sorted array.
-3. **3-default-parameter.js**: Returns the perimeter of a rectangle.
-4. **4-rest-parameter.js**: Returns the number of arguments and the arguments themselves.
-5. **5-spread-operator.js**: Returns an array of characters in a string.
-6. **6-object-literal.js**: Returns a formatted object.
-7. **7-getBudgetObject.js**: Returns an object using shorthand property names.
-8. **8-getBudgetCurrentYear.js**: Returns an object using computed property names.
-9. **9-getFullBudget.js**: Returns an object using method properties.
-10. **10-loops.js**: Modifies an array using the `for...of` loop.
-11. **11-createEmployeesObject.js**: Returns an object representing employees.
-12. **12-createReportObject.js**: Returns a report object based on employee data.
+0. [0-constants.js](0-constants.js) Declares two constants representing two variables.
+1. [1-block-scoped.js](1-block-scoped.js) Prints two variables.
+2. [2-arrow.js](2-arrow.js) Returns a sorted array.
+3. [3-default-parameter.js](3-default-parameter.js) Returns the perimeter of a rectangle.
+4. [4-rest-parameter.js](4-rest-parameter.js) Returns the number of arguments and the arguments themselves.
+5. [5-spread-operator.js](5-spread-operator.js) Returns an array of characters in a string.
+6. [6-object-literal.js](6-object-literal.js) Returns a formatted object.
+7. [7-getBudgetObject.js](7-getBudgetObject.js) Returns an object using shorthand property names.
+8. [8-getBudgetCurrentYear.js](8-getBudgetCurrentYear.js) Returns an object using computed property names.
+9. [9-getFullBudget.js](9-getFullBudget.js) Returns an object using method properties.
+10. [10-loops.js](10-loops.js) Modifies an array using the `for...of` loop.
+11. [11-createEmployeesObject.js](11-createEmployeesObject.js) Returns an object representing employees.
+12. [12-createReportObject.js](12-createReportObject.js) Returns a report object based on employee data.
 
 ## Setup
 Make sure to run `npm install` to install all necessary dependencies.
