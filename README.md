@@ -1,15 +1,25 @@
-# Holberton School - Web Back-End
+# JavaScript Practice
 
-This repository contains projects and exercises related to the back-end web development track at Holberton School. The main focus is on JavaScript (ES6), Node.js, and related technologies.
+This repository contains tasks for practicing various JavaScript concepts.
 
-## Table of Contents
+## Directories:
+1. **ES6_basics**: Contains tasks for practicing with basic ES6 features.
+2. **ES6_promises**: Contains tasks for practicing with ES6 Promises.
 
-- [ES6 Basics](./ES6_basic)
+## Setup
+For each directory, make sure to navigate into the directory and run `npm install` to install all necessary dependencies.
 
-## ES6 Basics
+## Testing
+Tests are run using Jest. To run all tests for a directory, navigate into the directory and use the command `npm run test`.
 
-In this project, we explore the basics of ECMAScript 6 (ES6), also known as ECMAScript 2015. Topics covered include `let` and `const`, arrow functions, template literals, default function parameters, destructuring assignment, classes, iterators, and for-of loops. We also cover software linters and their importance in maintaining code quality and consistency.
+## Linting
+ESLint is used for linting. To check for any linting errors in a directory, navigate into the directory and use the command `npm run lint`.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
+This project is licensed under the MIT License.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Contact
+For any inquiries or issues, please reach out to `davisdustin328@gmail.com`.

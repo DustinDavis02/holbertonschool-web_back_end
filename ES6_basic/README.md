@@ -1,32 +1,36 @@
 # ES6 Basics
 
-This project focuses on learning the basics of ECMAScript 6 (ES6), also known as ECMAScript 2015. We cover a range of topics, including:
+This directory contains various tasks for practicing with basic ES6 features in JavaScript.
 
-- `let` and `const` declarations
-- Arrow functions
-- Template literals
-- Default function parameters
-- Destructuring assignment
-- Classes
-- Iterators and for-of loops
+## Tasks:
+0. **0-constants.js**: Declares two constants representing two variables.
+1. **1-block-scoped.js**: Prints two variables.
+2. **2-arrow.js**: Returns a sorted array.
+3. **3-default-parameter.js**: Returns the perimeter of a rectangle.
+4. **4-rest-parameter.js**: Returns the number of arguments and the arguments themselves.
+5. **5-spread-operator.js**: Returns an array of characters in a string.
+6. **6-object-literal.js**: Returns a formatted object.
+7. **7-getBudgetObject.js**: Returns an object using shorthand property names.
+8. **8-getBudgetCurrentYear.js**: Returns an object using computed property names.
+9. **9-getFullBudget.js**: Returns an object using method properties.
+10. **10-loops.js**: Modifies an array using the `for...of` loop.
+11. **11-createEmployeesObject.js**: Returns an object representing employees.
+12. **12-createReportObject.js**: Returns a report object based on employee data.
 
-Additionally, we learn about software linters and their importance in maintaining code quality and consistency. We utilize the ESLint linter for our JavaScript code.
+## Setup
+Make sure to run `npm install` to install all necessary dependencies.
 
-## Learning Objectives
+## Testing
+Tests are run using Jest. To run all tests, use the command `npm run test`.
 
-Upon completion of this project, you should be able to:
+## Linting
+ESLint is used for linting. To check for any linting errors, use the command `npm run lint`.
 
-- Explain what ES6 is and why it is important
-- Understand and apply new features introduced in ES6
-- Differentiate between constants and variables
-- Utilize block-scoped variables
-- Use arrow functions and their default parameters
-- Apply rest and spread function parameters
-- Use string templating in ES6
-- Create objects and understand their properties in ES6
-- Work with iterators and for-of loops
-- Set up and use ESLint to maintain code quality
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Author
+## License
+This project is licensed under the MIT License.
 
-[Dustin Davis](mailto:davisdustin501@gmail.com)
+## Contact
+For any inquiries or issues, please reach out to `davisdustin328@gmail.com`.
