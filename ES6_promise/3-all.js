@@ -7,5 +7,6 @@ return Promise.all([uploadPhoto(), createUser()])
   })
   .catch(() => {
     console.error('Signup system offline');
+    throw new Error('Signup system offline');
   });
 }
