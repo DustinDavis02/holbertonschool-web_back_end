@@ -4,7 +4,7 @@ This repository contains tasks for practicing various JavaScript concepts.
 
 ## Directories:
 1. [ES6_basics](/ES6_basic) Contains tasks for practicing with basic ES6 features.
-2. [ES6_promises](/ES6_promises) Contains tasks for practicing with ES6 Promises.
+2. [ES6_promise](/ES6_promise) Contains tasks for practicing with ES6 Promises.
 
 ## Setup
 For each directory, make sure to navigate into the directory and run `npm install` to install all necessary dependencies.
