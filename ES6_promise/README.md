@@ -3,7 +3,7 @@
 This directory contains various tasks for practicing with ES6 Promises in JavaScript.
 
 ## Tasks:
-0. **0-promise.js**: Returns a Promise using the `getResponseFromAPI` function.
+0. [0-promise.js](0-promise.js): Returns a Promise using the `getResponseFromAPI` function.
 
 (Other tasks will be listed here as I continue)
 
