@@ -1,0 +1,6 @@
+.vscode
+node_modles
+.mypy_cashe
+.DS_Store
+__pycache__
+.idea
