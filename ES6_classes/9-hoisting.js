@@ -1,50 +1,83 @@
-// Define the HolbertonClass first
-export class HolbertonClass {
-    constructor(year, location) {
-      this._year = year;
-      this._location = location;
-    }
-  
-    get year() {
-      return this._year;
-    }
-  
-    get location() {
-      return this._location;
-    }
+class HolbertonClass {
+  constructor(size, location, founder) {
+    this.size = size;
+    this.location = location;
+    this.founder = founder;
   }
-  
-  // create the instances
-  const class2019 = new HolbertonClass(2019, 'San Francisco');
-  const class2020 = new HolbertonClass(2020, 'San Francisco');
-  
-  export class StudentHolberton {
-    constructor(firstName, lastName, holbertonClass) { // Add the missing parameter
-      this._firstName = firstName;
-      this._lastName = lastName;
-      this._holbertonClass = holbertonClass; // Fix this line
-    }
-  
-    get fullName() {
-      return `${this._firstName} ${this._lastName}`;
-    }
-  
-    get holbertonClass() {
-      return this._holbertonClass; // Fix this line
-    }
-  
-    get fullStudentDescription() {
-      return `${this._firstName} ${this._lastName} - ${this._holbertonClass.year} - ${this._holbertonClass.location}`; // Use 'this' instead of 'self'
-    }
+
+  get size() {
+    return this._size;
   }
-  
-  // create the StudentHolberton instances
-  const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
-  const student2 = new StudentHolberton('John', 'Doe', class2020);
-  const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
-  const student4 = new StudentHolberton('Donald', 'Bush', class2019);
-  const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
-  
-  // export the list of students
-  export const listOfStudents = [student1, student2, student3, student4, student5];
-  
+
+  set size(newSize) {
+    this._size = newSize;
+  }
+
+  get location() {
+    return this._location;
+  }
+
+  set location(newLocation) {
+    this._location = newLocation;
+  }
+
+  get founder() {
+    return this._founder;
+  }
+
+  set founder(newFounder) {
+    this._founder = newFounder;
+  }
+}
+
+class StudentHolberton {
+  constructor(name, age, gender, _holbertonClass) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this._holbertonClass = _holbertonClass;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(newName) {
+    this._name = newName;
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(newAge) {
+    this._age = newAge;
+  }
+
+  get gender() {
+    return this._gender;
+  }
+
+  set gender(newGender) {
+    this._gender = newGender;
+  }
+
+  get holbertonClass() {
+    return this._holbertonClass;
+  }
+
+  set holbertonClass(newHolbertonClass) {
+    this._holbertonClass = newHolbertonClass;
+  }
+
+  get fullStudentDescription() {
+    return `${this._name} is a ${this._age}-year-old ${this._gender} enrolled in the ${this._holbertonClass.size} class at the ${this._holbertonClass.location} location. The ${this._holbertonClass.size} class was founded by ${this._holbertonClass.founder}.`;
+  }
+}
+
+const holberton = new HolbertonClass(28, "San Francisco", "Sylvain Kalache");
+const student1 = new StudentHolberton("John Doe", 22, "male", holberton);
+const student2 = new StudentHolberton("Jane Smith", 23, "female", holberton);
+const student3 = new StudentHolberton("Bob Johnson", 25, "male", holberton);
+const student4 = new StudentHolberton("Linda Davis", 24, "female", holberton);
+const student5 = new StudentHolberton("Mike Wilson", 21, "male", holberton);
