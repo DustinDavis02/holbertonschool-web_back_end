@@ -2,7 +2,6 @@
 """Function to measure total execution time."""
 import time
 import asyncio
-from typing import list
 from importlib import import_module
 
 module = import_module('1-concurrent_coroutines')
