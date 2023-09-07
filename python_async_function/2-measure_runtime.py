@@ -5,7 +5,7 @@ import asyncio
 from typing import list
 from importlib import import_module
 
-module = import_module('1-concurrent_runtime')
+module = import_module('1-concurrent_coroutines')
 wait_n = module.wait_random
 
 
