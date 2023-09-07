@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Define and annotates four variables: a, pi, i_understand_annotations and school."""
+"""Define and annotates four variables:
+a, pi, i_understand_annotations and school."""
 
 
 a: int = 1
