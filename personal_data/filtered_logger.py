@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """This module is designed to obfuscate specific fields in a log message."""
 
+
+from typing import List
 import re
 
-def filter_datum(fields: list, redaction: str, message: str, separator: str) -> str:
+def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
     """
     Obfuscates specified fields.
     
     Parameters:
-        fields (List): Fields to be obfuscated.
+        fields (List[str]): Fields to be obfuscated.
         redaction (str): String to replace field values.
         message (str): Original log message.
         separator (str): Character that separates each field in the log line.
