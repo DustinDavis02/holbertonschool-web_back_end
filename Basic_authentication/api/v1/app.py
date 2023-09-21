@@ -24,7 +24,7 @@ if getenv("AUTH_TYPE") == "auth":
 def before_request_func():
     """
     Before_request_func handle request filtering.
-    
+
     This function runs before each request:
     1. 'auth' is None, do nothing
     2. request path is not in the exclusion list, do nothing
@@ -33,7 +33,10 @@ def before_request_func():
     """
     if auth is None:
         return
-    if not auth.require_auth(request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']):
+    if not auth.require_auth(request.path,
+                             ['/api/v1/status/', 
+                              '/api/v1/unauthorized/', 
+                              '/api/v1/forbidden/']):
         return
     if auth.authorization_header(request) is None:
         abort(401)

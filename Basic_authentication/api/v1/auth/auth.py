@@ -53,7 +53,8 @@ class Auth:
             - request: The Flask request object
 
         Returns:
-            str: The value of the Authorization header if it exists, otherwise None
+            str: value of the Authorization header if exists, 
+            otherwise None
         """
         if request is None:
             return None
