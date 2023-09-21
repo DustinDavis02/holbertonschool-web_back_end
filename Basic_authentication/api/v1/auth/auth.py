@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+This is the Auth module.
+
+This module is responsible for handling API authentication.
+"""
+
 from typing import List, TypeVar
 from flask import request
 
