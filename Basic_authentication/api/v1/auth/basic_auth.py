@@ -68,6 +68,7 @@ class BasicAuth(Auth):
 
         try:
             # Decode Base64 string and return as UTF8
-            return base64.b64decode(base64_authorization_header).decode('utf-8')
+            return base64.b64decode(
+                base64_authorization_header).decode('utf-8')
         except Exception:
             return None
