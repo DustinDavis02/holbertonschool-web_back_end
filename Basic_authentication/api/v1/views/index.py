@@ -27,13 +27,13 @@ def stats() -> str:
 
 
 @app_views.route('/unauthorized/', strict_slashes=False)
-def unauthorized() -> str:
+def unauthorized_test() -> str:
     """ GET /api/v1/unauthorized
     This endpoint raises a 401 error for testing.
     """
     abort(401)
 
-@app_views.route('/api/v1/forbidden', methods=['GET'], strict_slashes=False)
+@app_views.route('/forbidden/', strict_slashes=False)
 def forbidden_test() -> str:
     """ GET /api/v1/forbidden
     This endpoint raises a 403 error for testing.
