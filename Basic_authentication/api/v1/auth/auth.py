@@ -46,8 +46,18 @@ class Auth:
                        == path for ex_path in excluded_paths)
 
     def authorization_header(self, request=None) -> str:
-        """ Method to get the authorization header. Returns None for now. """
-        return None
+        """
+        Method to get the Authorization header from the request object.
+
+        Parameters:
+            - request: The Flask request object
+
+        Returns:
+            str: The value of the Authorization header if it exists, otherwise None
+        """
+        if request is None:
+            return None
+        return request.headers.get('Authorization', None)
 
     def current_user(self, request=None) -> TypeVar('User'):
         """ Method to get the current user. Returns None for now. """
