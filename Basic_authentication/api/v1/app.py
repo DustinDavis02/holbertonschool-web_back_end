@@ -22,6 +22,15 @@ if getenv("AUTH_TYPE") == "auth":
 
 @app.before_request
 def before_request_func():
+    """
+    Before_request_func handle request filtering.
+    
+    This function runs before each request:
+    1. 'auth' is None, do nothing
+    2. request path is not in the exclusion list, do nothing
+    3. Authorization header is missing in the request, raise a 401 error
+    4. current user is None, raise a 403 error
+    """
     if auth is None:
         return
     if not auth.require_auth(request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']):
