@@ -61,6 +61,7 @@ class DB:
             if hasattr(user_to_update, key):
                 setattr(user_to_update, key, value)
             else:
-                raise ValueError(f"{key} does not correspond to a user attribute")
+                raise ValueError
+            (f"{key} does not correspond to a user attribute")
 
         self._session.commit()
