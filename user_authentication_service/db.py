@@ -5,17 +5,19 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
+from sqlalchemy.orm.exc import NoResultFound
+from sqlalchemy.exc import InvalidRequestError
 
-from user import Base
-from user import User
+from user import Base, User
 
 class DB:
     """DB class
     """
 
     def __init__(self) -> None:
-        """new DB instance"""
-        self._engine = create_engine("sqlite:///a.db", echo=True)
+        """Initialize a new DB instance
+        """
+        self._engine = create_engine("sqlite:///a.db", echo=False)
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
@@ -30,16 +32,7 @@ class DB:
         return self.__session
 
     def add_user(self, email: str, hashed_password: str) -> User:
-        """
-        Adds a new user to the database and returns the User object.
-
-        Parameters:
-            email (str): The email of the user.
-            hashed_password (str): The hashed password for the user.
-
-        Returns:
-            User: The created User object.
-        """
+        """new user to the database"""
         new_user = User(email=email, hashed_password=hashed_password)
         self._session.add(new_user)
         self._session.commit()
