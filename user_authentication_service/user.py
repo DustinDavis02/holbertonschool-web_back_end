@@ -6,6 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class User(Base):
     """
     defines a table 'users' with the following attributes:
@@ -15,9 +16,9 @@ class User(Base):
     - session_id: A nullable string for the session ID.
     - reset_token: A nullable string for the reset token.
     """
-    
+
     __tablename__ = 'users'
-    
+
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
     hashed_password = Column(String(250), nullable=False)
