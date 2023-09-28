@@ -24,6 +24,7 @@ if getenv("AUTH_TYPE") == "auth":
 if getenv("AUTH_TYPE") == "session_auth":
     auth = SessionAuth()
 
+
 @app.before_request
 def before_request_func():
     """
