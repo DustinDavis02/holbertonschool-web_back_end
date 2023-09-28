@@ -3,7 +3,7 @@
 This module sets up a basic Flask app with user registration and login.
 """
 
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, redirect
 from auth import Auth
 app = Flask(__name__)
 
@@ -48,6 +48,26 @@ def sessions():
         return response, 200
     else:
         abort(401)
+
+
+@app.route('/sessions', methods=['DELETE'])
+def logout():
+    """
+    DELETE route for logging out users.
+    """
+    # session ID from cookies
+    session_id = request.cookies.get('session_id')
+
+    # Find user with given session ID
+    user = AUTH.get_user_from_session_id(session_id)
+
+    if user is not None:
+        # Destroy session and redirect to GET /
+        AUTH.destroy_session(user.id)
+        return redirect('/')
+    else:
+        # Respond with 403 HTTP status
+        abort(403)
 
 
 if __name__ == "__main__":
