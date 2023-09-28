@@ -42,10 +42,7 @@ class Server:
         """
         Retrieve the appropriate page of the dataset
         """
-        assert isinstance(page, int) and page > 0, \
-            "page must be an integer greater than 0"
-        assert isinstance(page_size, int) and page_size > 0, \
-            "page_size must be an integer greater than 0"
-
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
         start_index, end_index = index_range(page, page_size)
         return self.dataset()[start_index:end_index]
