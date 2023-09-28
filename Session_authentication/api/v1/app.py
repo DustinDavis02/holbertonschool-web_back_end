@@ -44,13 +44,8 @@ def before_request_func():
                       '/api/v1/auth_session/login/']
     if not auth.require_auth(request.path, excluded_paths):
         return
-
-    if auth and (
-            not any(request.path.startswith(excluded)
-                    for excluded in excluded_paths) and
-            (auth.authorization_header(request)
-             is None and auth.session_cookie(request) is None)
-    ):
+    if auth and not any(request.path.startswith(excluded) for excluded in excluded_paths) \
+        and (auth.authorization_header(request) is None and auth.session_cookie(request) is None):
         abort(401)
     user = auth.current_user(request)
     if user is None:
