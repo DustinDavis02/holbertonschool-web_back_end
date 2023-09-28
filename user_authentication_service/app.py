@@ -70,5 +70,24 @@ def logout():
         abort(403)
 
 
+@app.route('/profile', methods=['GET'])
+def profile():
+    """
+    GET route to fetch the user profile information.
+    """
+    # session ID from cookies
+    session_id = request.cookies.get('session_id')
+
+    # Find user with given session ID
+    user = AUTH.get_user_from_session_id(session_id)
+
+    if user is not None:
+        # Respond with 200 and user's email
+        return jsonify({"email": user.email}), 200
+    else:
+        # Respond with 403 HTTP status
+        abort(403)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
