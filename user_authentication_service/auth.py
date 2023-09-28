@@ -5,6 +5,7 @@ from db import DB
 from user import User
 from sqlalchemy.orm.exc import NoResultFound
 
+
 class Auth:
     """Auth class to interact with the authentication database.
     """
@@ -26,6 +27,7 @@ class Auth:
             # Add user to database
             new_user = self._db.add_user(email, hashed_password)
             return new_user
+
 
 def _hash_password(password: str) -> bytes:
     """
