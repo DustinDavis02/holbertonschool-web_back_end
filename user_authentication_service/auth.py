@@ -12,7 +12,7 @@ class Auth:
     def __init__(self):
         self._db = DB()
 
-    def _hash_password(self, password: str) -> bytes:
+    def _hash_password(password: str) -> bytes:
         """
         Hashes password string and returns salted hash bytes.
         """
@@ -25,12 +25,7 @@ class Auth:
         Registers a user with a given email and password.
         """
         try:
-            # Check if user exists
             self._db.find_user_by(email=email)
             raise ValueError(f"User {email} already exists")
         except NoResultFound:
-            # Hash password
-            hashed_password = self._hash_password(password)
-            # Add user to database
-            new_user = self._db.add_user(email, hashed_password)
-            return new_user
+            return self._db.add_user(email, _hash_password(password))
