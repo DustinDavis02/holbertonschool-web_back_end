@@ -21,7 +21,8 @@ if getenv("AUTH_TYPE") == "basic_auth":
     auth = BasicAuth()
 if getenv("AUTH_TYPE") == "auth":
     auth = Auth()
-
+if getenv("AUTH_TYPE") == "session_auth":
+    auth = SessionAuth()
 
 @app.before_request
 def before_request_func():
