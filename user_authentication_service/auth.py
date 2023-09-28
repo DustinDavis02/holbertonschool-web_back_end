@@ -46,6 +46,7 @@ def _generate_uuid() -> str:
     """
     return str(uuid.uuid4())
 
+
 def _hash_password(password: str) -> bytes:
     """
     Hashes password string and returns salted hash bytes.
