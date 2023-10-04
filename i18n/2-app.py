@@ -23,6 +23,7 @@ def get_locale():
     """Determine the best match for supported languages."""
     return request.accept_languages.best_match(Config.LANGUAGES)
 
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index():
     """Main route"""
