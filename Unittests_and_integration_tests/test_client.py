@@ -39,6 +39,27 @@ class TestGithubOrgClient(unittest.TestCase):
         """Test 'has_license' static method returns correct value"""
         self.assertEqual(GithubOrgClient.has_license(repo, license_key),
                          expected_value)
+    
+    @patch('client.get_json')
+    @patch.object(GithubOrgClient, '_public_repos_url', new_callable=PropertyMock)
+    def test_public_repos(self, mock_public_repos_url, mock_get_json):
+        """Test `public_repos` method."""
+        mock_public_repos_url.return_value = "https://some_url.com"
+
+        mock_get_json.return_value = [
+            {"name": "repo1", "license": {"key": "license1"}},
+            {"name": "repo2", "license": {"key": "license2"}},
+            {"name": "repo3", "license": {"key": "license3"}}
+        ]
+
+        github_client = GithubOrgClient("google")
+
+        self.assertEqual(github_client.public_repos(), ["repo1", "repo2", "repo3"])
+
+        self.assertEqual(github_client.public_repos("license1"), ["repo1"])
+
+        mock_public_repos_url.assert_called_once()
+        mock_get_json.assert_called_once_with("https://some_url.com")
 
 if __name__ == "__main__":
     unittest.main()
