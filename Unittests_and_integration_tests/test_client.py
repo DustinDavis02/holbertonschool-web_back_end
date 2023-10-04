@@ -22,14 +22,18 @@ class TestGithubOrgClient(unittest.TestCase):
         github_client = GithubOrgClient(org_name)
         self.assertEqual(github_client.org, expected_return_value)
 
-        mock_get_json.assert_called_once_with(f"https://api.github.com/orgs/{org_name}")
+        mock_get_json.assert_called_once_with
+        (f"https://api.github.com/orgs/{org_name}")
 
     def test_public_repos_url(self):
-        """Test that result of _public_repos_url is the expected one based on the mocked payload"""
-        with patch.object(GithubOrgClient, 'org', new_callable=PropertyMock) as mock_org:
-            mock_org.return_value = {"repos_url": "https://api.github.com/orgs/google/repos"}
+        """Test result of _public_repos_url is expected based on payload"""
+        with patch.object(GithubOrgClient, 'org',
+                          new_callable=PropertyMock) as mock_org:
+            mock_org.return_value = {"repos_url":
+                "https://api.github.com/orgs/google/repos"}
             github_client = GithubOrgClient("google")
-            self.assertEqual(github_client._public_repos_url, "https://api.github.com/orgs/google/repos")
+            self.assertEqual(github_client._public_repos_url,
+                             "https://api.github.com/orgs/google/repos")
 
     @parameterized.expand([
         ({"license": {"key": "my_license"}}, "my_license", True),
@@ -39,9 +43,10 @@ class TestGithubOrgClient(unittest.TestCase):
         """Test 'has_license' static method returns correct value"""
         self.assertEqual(GithubOrgClient.has_license(repo, license_key),
                          expected_value)
-    
+
     @patch('client.get_json')
-    @patch.object(GithubOrgClient, '_public_repos_url', new_callable=PropertyMock)
+    @patch.object(GithubOrgClient, '_public_repos_url',
+                  new_callable=PropertyMock)
     def test_public_repos(self, mock_public_repos_url, mock_get_json):
         """Test `public_repos` method."""
         mock_public_repos_url.return_value = "https://some_url.com"
@@ -54,12 +59,16 @@ class TestGithubOrgClient(unittest.TestCase):
 
         github_client = GithubOrgClient("google")
 
-        self.assertEqual(github_client.public_repos(), ["repo1", "repo2", "repo3"])
+        self.assertEqual(github_client.public_repos(),
+                         ["repo1", "repo2", "repo3"])
 
-        self.assertEqual(github_client.public_repos("license1"), ["repo1"])
+        self.assertEqual(github_client.public_repos("license1"),
+                         ["repo1"])
 
         mock_public_repos_url.assert_called_once()
-        mock_get_json.assert_called_once_with("https://some_url.com")
+        mock_get_json.assert_called_once_with
+        ("https://some_url.com")
+
 
 if __name__ == "__main__":
     unittest.main()
