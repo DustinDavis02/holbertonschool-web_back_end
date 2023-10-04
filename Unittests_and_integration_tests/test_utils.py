@@ -6,6 +6,7 @@ from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize
 from unittest.mock import patch, Mock
 
+
 class TestAccessNestedMap(unittest.TestCase):
     """Testing the function access_nested_map function."""
 
@@ -22,11 +23,13 @@ class TestAccessNestedMap(unittest.TestCase):
         ({}, ("a",), "a"),
         ({"a": 1}, ("a", "b"), "b")
     ])
-    def test_access_nested_map_exception(self, nested_map, path, expected_message):
+    def test_access_nested_map_exception(self,
+                                         nested_map, path, expected_message):
         """Testing the function raises KeyError for specific inputs."""
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
         self.assertEqual(str(context.exception).strip("'"), expected_message)
+
 
 class TestGetJson(unittest.TestCase):
     """Testing the function get_json."""
@@ -46,6 +49,7 @@ class TestGetJson(unittest.TestCase):
 
         mock_get.assert_called_once_with(test_url)
 
+
 class TestMemoize(unittest.TestCase):
     """Testing function memoize."""
 
@@ -62,7 +66,8 @@ class TestMemoize(unittest.TestCase):
             def a_property(self):
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
+        with patch.object(TestClass, 'a_method',
+                          return_value=42) as mock_method:
             test_class_instance = TestClass()
             self.assertEqual(test_class_instance.a_property, 42)
             self.assertEqual(test_class_instance.a_property, 42)
