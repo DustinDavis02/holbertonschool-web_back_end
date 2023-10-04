@@ -19,10 +19,10 @@ class TestAccessNestedMap(unittest.TestCase):
 
     @parameterized.expand([
         ({}, ("a",), "a"),
-        ({"a": 1}, ("a", "b"), "b")
+        ({"a": 0}, ("a", "b"), "b")
     ])
     def test_access_nested_map_exception(self, nested_map, path, expected_message):
-        """Testing if the function raises KeyError for specific inputs."""
+        """Testing the function raises KeyError for specific inputs."""
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
         self.assertEqual(str(context.exception), expected_message)
