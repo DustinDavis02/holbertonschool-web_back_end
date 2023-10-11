@@ -2,8 +2,9 @@
 """Parametrize templates"""
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-
 app = Flask(__name__)
+
+babel = Babel(app)
 
 
 class Config:
@@ -15,28 +16,22 @@ class Config:
 
 app.config.from_object(Config)
 
-
-babel = Babel(app)
-
-
-@babel.localeselector
-def get_locale():
-    """Select best match for locale."""
-    # Check locale parameter present
-    locale_from_url = request.args.get("locale")
-    if locale_from_url and locale_from_url in app.config['LANGUAGES']:
-        return locale_from_url
-
-    # Fall back to default behavior
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
     3: {"name": "Spock", "locale": "kg", "timezone": "Vulcan"},
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
+
+
+@babel.localeselector
+def get_locale():
+    """Select best match for locale."""
+    locale_from_url = request.args.get("locale")
+    if locale_from_url and locale_from_url in app.config['LANGUAGES']:
+        return locale_from_url
+
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 def get_user():
@@ -50,11 +45,13 @@ def get_user():
 
 @app.before_request
 def before_request():
-    """ Function to run before other ones """
-    g.user = get_user()
+    """ Before request """
+    user = get_user()
+    if user:
+        g.user = user
 
 
-@app.route('/', methods=['GET'], strict_slashes=False)
+@app.route('/')
 def index():
     """ Route for index page """
     return render_template('3-index.html')
