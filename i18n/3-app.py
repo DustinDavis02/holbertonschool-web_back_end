@@ -2,8 +2,9 @@
 """Parametrize templates"""
 from flask import Flask, render_template, request
 from flask_babel import Babel
-
 app = Flask(__name__)
+
+babel = Babel(app)
 
 
 class Config:
@@ -16,17 +17,15 @@ class Config:
 app.config.from_object(Config)
 
 
-babel = Babel(app)
-
-
 @babel.localeselector
 def get_locale():
     """ best match """
-    return request.accept_languages.best_match
-(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(
+        app.config['LANGUAGES']
+    )
 
 
-@app.route('/', methods=['GET'], strict_slashes=False)
+@app.route('/')
 def index():
     """ Route for index page """
     return render_template('3-index.html')
