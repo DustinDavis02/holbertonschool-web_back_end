@@ -47,6 +47,12 @@ def get_user():
     return None
 
 
+@app.before_request
+def before_request():
+    """ Function to run before other ones """
+    g.user = get_user()
+
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index():
     """ Route for index page """
