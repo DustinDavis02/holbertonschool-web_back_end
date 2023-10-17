@@ -19,7 +19,6 @@ class Cache:
         return key
 
 if __name__ == "__main__":
-    # For initial testing purposes
     cache = Cache()
     data = b"hello"
     key = cache.store(data)
