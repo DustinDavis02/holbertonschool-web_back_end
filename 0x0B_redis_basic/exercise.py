@@ -50,9 +50,7 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(
-        self, key: str, fn: Optional[Callable] = None
-) -> Union[str, bytes, int, float]:
+    def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
         """Get data from Redis and optionally apply conversion function."""
         value = self._redis.get(key)
         if fn:
@@ -82,5 +80,4 @@ def replay(method: Callable):
 
     print(f"{method_name} was called {len(inputs)} times:")
     for in_arg, out_res in zip(inputs, outputs):
-        print(f"{method_name}(*{in_arg.decode('utf-8')}) -> " \
-          f"{out_res.decode('utf-8')}")
+        print(f"{method_name}(*{in_arg.decode('utf-8')}) -> {out_res.decode('utf-8')}")
