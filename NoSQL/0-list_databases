@@ -1,2 +1,3 @@
 // Lists all databases in MongoDB
+user Implicit
 show dbs
